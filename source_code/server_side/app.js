@@ -1,9 +1,11 @@
 const express = require('express');
+const cors = require('cors');
 const app = express();
 const port = 3000; //Port on which my server is running
 
 // Helps to parse the JSON
 app.use(express.json());
+app.use(cors());
 
 // Logic for addition two numbers
 app.post('/add', (req, res) => {
