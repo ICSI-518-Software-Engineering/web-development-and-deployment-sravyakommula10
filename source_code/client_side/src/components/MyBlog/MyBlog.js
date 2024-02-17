@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 
 import photo from '../../Images/photo.png';
-import { Navbar, Form, Container, Row, Col,Button } from "react-bootstrap";
+import { Navbar, Form, Container, Row, Col, Button } from "react-bootstrap";
 import mylogo from '../../Images/mylogo.jpeg';
 import { getService } from "../../API/api";
 
@@ -16,31 +16,42 @@ const MyBlog = () => {
     const [reactSum, setReactSum] = useState(null);
     const [serverSum, setServerSum] = useState(null);
 
+
     const getOutputClass = () => {
-        return reactSum > 0 ? 'positive' : 'negative';
+        return (reactSum != null && Number.isInteger(reactSum)) ? 'positive' : 'negative';
     };
 
     const getOutputServerClass = () => {
-        return serverSum > 0 ? 'positive' : 'negative';
+        return serverSum != null ? 'positive' : 'negative';
     };
-
-
     const handleSum = async () => {
-        setReactSum(numOne + numTwo);
+        const finalSum = parseInt(numOne) + parseInt(numTwo);
+        if (Number.isInteger(finalSum)) {
+            setReactSum(finalSum);
+        } else {
+            setReactSum(null)
+        }
+
         const payload = {
             method: "POST",
-            url: "http://localhost:3000",
+            url: "http://localhost:3000/add",
 
             data: {
-                numOne: numOne,
-                numTwo: numTwo,
+                numOne: parseInt(numOne),
+                numTwo: parseInt(numTwo),
             },
         };
-        const response = await getService(payload);
-        if (response.status === 200) {
-            setServerSum(response.data.Addition);
-        } else {
-            alert(response.data);
+
+        try {
+            const response = await getService(payload);
+            setServerSum(response.data.sum);
+        } catch (error) {
+            if (error.response && error.response.status === 400) {
+                setServerSum(null);
+                alert("Enter valid data");
+            } else {
+                console.error("An unexpected error occurred:", error.message);
+            }
         }
     };
 
