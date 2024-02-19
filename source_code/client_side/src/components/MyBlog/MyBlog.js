@@ -60,14 +60,14 @@ const MyBlog = () => {
     <>
       <Navbar variant="light" className="navBar">
         <Navbar.Brand href="#home" className="custom-nav">
-          <img
+          {/* <img
             alt="Media Library"
             src={mylogo}
             width="40"
             height="40"
             className="d-inline-block align-top"
-          />{" "}
-          <p>Sravya</p>
+          />{" "} */}
+          <p class="title"> Sravya Kommula</p>
         </Navbar.Brand>
       </Navbar>
       <div className="wholeSection">
@@ -80,6 +80,7 @@ const MyBlog = () => {
             </Col>
             <Col sm={1}></Col>
             <Col sm={6}>
+              <h4 className="app-intro"> Hello Welcome to Application</h4>
               <Form>
                 <Form.Group>
                   <Form.Control
@@ -105,73 +106,62 @@ const MyBlog = () => {
             </Col>
           </Row>
         </Container>
+        <div className="mt-5 addition">
+          <h4 className={"addition-title"}>
+            Please provide inputs for addition:
+          </h4>
+          <Form className="form">
+            <Form.Group as={Row} className="mb-4">
+              <Form.Label column sm="6">
+                Enter First Number:
+              </Form.Label>
+              <Col sm="6">
+                <Form.Control
+                  type="number"
+                  placeholder="Enter first number"
+                  value={numOne}
+                  onChange={(e) => setNumOne(parseInt(e.target.value))}
+                />
+              </Col>
+            </Form.Group>
+            <Form.Group as={Row}>
+              <Form.Label column sm="6">
+                Enter Second Number:
+              </Form.Label>
+              <Col sm="6">
+                <Form.Control
+                  type="number"
+                  placeholder="Enter second number"
+                  value={numTwo}
+                  onChange={(e) => setNumTwo(parseInt(e.target.value))}
+                />
+              </Col>
+            </Form.Group>
+          </Form>
 
-        <Container className="mt-5">
-          <Row className="mb-4">
-            <h4 className={""}>
-              Hello {user}, can you provide your inputs to add 2 numbers
-            </h4>
-          </Row>
-          <Row className="mb-4">
-            <Col sm={1}></Col>
-            <Col>
-              <Form>
-                <Form.Group as={Row} className="mb-4">
-                  <Form.Label column sm="3">
-                    Enter First Number:
-                  </Form.Label>
-                  <Col sm="4">
-                    <Form.Control
-                      type="number"
-                      placeholder="Enter first number"
-                      value={numOne}
-                      onChange={(e) => setNumOne(parseInt(e.target.value))}
-                    />
-                  </Col>
-                </Form.Group>
-                <Form.Group as={Row}>
-                  <Form.Label column sm="3">
-                    Enter Second Number:
-                  </Form.Label>
-                  <Col sm="4">
-                    <Form.Control
-                      type="number"
-                      placeholder="Enter second number"
-                      value={numTwo}
-                      onChange={(e) => setNumTwo(parseInt(e.target.value))}
-                    />
-                  </Col>
-                </Form.Group>
-              </Form>
-            </Col>
-          </Row>
-          <Row className="mb-4">
-            <Col sm={1}></Col>
-
-            <Col sm={2}>
-              <Button variant="outline-primary" onClick={handleSum} size="lg">
-                Submit
-              </Button>
-            </Col>
-          </Row>
-          <Row>
-            <Col sm={1}></Col>
-            <Col>
-              <h4 className={`output ${getOutputServerClass()}`}>
-                <strong>
-                  {" "}
-                  Your addition Result (from server) is: {serverSum}
-                </strong>
-              </h4>
-              <h4 className={`output ${getOutputClass()}`}>
-                <strong>
-                  {" "}
-                  Your addition Result (from ReactJS) is: {reactSum}
-                </strong>
-              </h4>
-            </Col>
-          </Row>
-        </Container>
+          <Button
+            variant="primary"
+            className="addition-button"
+            onClick={handleSum}
+            size="lg"
+          >
+            Click to Add Numbers
+          </Button>
+          <div className="result">
+            <h5 className={`output ${getOutputServerClass()}`}>
+              <strong>
+                {" "}
+                Your addition Result (from server) is: {serverSum}
+              </strong>
+            </h5>
+            <h5 className={`output ${getOutputClass()}`}>
+              <strong>
+                {" "}
+                Your addition Result (from ReactJS) is: {reactSum}
+              </strong>
+            </h5>
+          </div>
+        </div>
       </div>
     </>
   );
