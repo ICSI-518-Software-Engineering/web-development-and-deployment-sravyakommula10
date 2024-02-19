@@ -35,7 +35,7 @@ const MyBlog = () => {
 
     const payload = {
       method: "POST",
-      url: "http://3.12.108.133:3000/add",
+      url: "http://3.12.108.133:5000/add",
 
       data: {
         numOne: parseInt(numOne),
