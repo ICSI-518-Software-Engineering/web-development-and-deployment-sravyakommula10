@@ -11,20 +11,6 @@
   margin-left: 10rem;
 }
 
-.form{
-  margin: 10px 0;
-}
-
-.addition-button{
-  background: #164e63!important;
-  color: #fff;
-  margin: 10px 0
-}
-.addition-button:hover{
-  background: #164e63!important;
-  opacity: 0.9!important;
-  color: #fff;
-}
 .custom-nav p {
   margin: 0;
   color: #ffffff;
@@ -32,35 +18,12 @@
   font-size: 1.5rem;
 }
 
-.title{
-  font-weight: 600;
-  margin: 0 20px;
-  font-family: "Protest Revolution", sans-serif;
-  font-weight: 400;
-  font-style: normal;
-}
-.app-intro{
-  margin: 0 0 30px 0;
-  font-size: 28px;
-  margin-bottom: 30px;
-}
-
-.addition{
-  display: flex;
-  width: 40%!important;
-  flex-direction: column;
-  /* align-items: center; */
-  justify-content: center;
-  margin-left: 15%;
-  
-
-}
-
-
 .wholeSection {
-display: flex;
-flex-direction: column;
-align-items: center;
+  background-color: #cffafe;
+  width: 70%;
+  box-shadow: 0px 0px 10px 4px rgb(127, 128, 130);
+  margin-left: 14rem;
+  margin-top: 1.5rem;
 }
 
 .userSection {
@@ -68,10 +31,11 @@ align-items: center;
 }
 
 .photo {
-  width: 180px;
-  height: 180px;
+  width: 220px;
+  height: 220px;
   border: 1px solid black;
   border-radius: 50%;
+  margin-top: 2.3em;
 }
 
 
@@ -82,14 +46,26 @@ align-items: center;
   width: 57.5%;
 }
 
-.result{
-  margin: 10px 0;
-}
-
 .positive {
-  color: hsl(205, 78%, 60%); /* Blue for positive values */
+  color: white;
+  background-color: hsl(205, 78%, 60%); /* Blue for positive values */
 }
 
 .negative {
-  color: #e74c3c; /* Red for negative values */
+  color: white;
+  background-color: #e74c3c; /* Red for negative values */
+}
+
+.updateButton {
+  width: 40%;
+  margin-right: 6em;
+}
+
+.cancelButton {
+  width: 40%;
+}
+
+.editButton {
+  width: 100%;
+  margin-bottom: 1.5em;
 }
