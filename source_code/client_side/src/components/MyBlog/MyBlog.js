@@ -19,6 +19,7 @@ const MyBlog = () => {
 
     const handleEdit = () => {
         setDescDisabled(false);
+        setUser(user);
         setDescription(description);
     }
 
@@ -28,6 +29,7 @@ const MyBlog = () => {
 
     const handleCancel = () => {
         if (!descDisabled) {
+            setUser(user);
             setDescription(initialDescription);
         }
         setDescDisabled(true);
@@ -106,6 +108,7 @@ const MyBlog = () => {
                                         placeholder="Enter your name"
                                         value={user}
                                         name="user"
+                                        disabled={descDisabled}
                                         onChange={(e) => setUser(e.target.value)}
                                     />
                                 </Form.Group>
@@ -133,7 +136,7 @@ const MyBlog = () => {
                 <Container className="mt-5">
                     <Row className="mb-4">
                         <h4 className={""}>
-                            Hello {user},  can you provide your inputs to add 2 numbers
+                            Hello,  can you provide your inputs to add 2 numbers
                         </h4>
                     </Row>
                     <Row className="mb-4">
