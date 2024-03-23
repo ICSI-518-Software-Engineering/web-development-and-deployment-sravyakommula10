@@ -1,10 +1,16 @@
 .navBar {
   background-color: #164e63;
+
 }
 
 .custom-nav {
   display: flex;
   align-items: center;
+
+}
+.tableHeading {
+  background-color: #164e63 !important;
+  color: #ffffff !important;
 }
 
 .custom-nav img {
@@ -17,6 +23,30 @@
   padding-left: 1rem;
   font-size: 1.5rem;
 }
+
+.customLink {
+  margin-left: 25em;
+  color: #ffffff;
+}
+
+.customLink .nav-link {
+  color: #ffffff !important;
+  font-size: 1.5rem;
+  text-decoration: none;
+  margin-left: 5rem;
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.customLink .nav-link:hover {
+  background-color:white ;
+  color: black !important;
+}
+
+.customLink .nav-link:active {
+  color: #ffffff !important;
+}
+
 
 .wholeSection {
   background-color: #cffafe;
@@ -48,12 +78,14 @@
 
 .positive {
   color: white;
-  background-color: hsl(205, 78%, 60%); /* Blue for positive values */
+  background-color: hsl(205, 78%, 60%);
+  /* Blue for positive values */
 }
 
 .negative {
   color: white;
-  background-color: #e74c3c; /* Red for negative values */
+  background-color: #e74c3c;
+  /* Red for negative values */
 }
 
 .updateButton {
@@ -69,3 +101,60 @@
   width: 100%;
   margin-bottom: 1.5em;
 }
+
+.jokesTable {
+  width: 75%;
+  border-collapse: collapse;
+  margin-top: 2em;
+  margin-left: 10em;
+}
+
+.jokesTable th, .jokesTable td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.jokesTable th {
+  background-color: #f2f2f2;
+}
+
+.jokesContainer {
+  width: 80%;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+  display: flex; /* Use flexbox for layout */
+  align-items: center; /* Align items vertically */
+}
+
+.jokesList {
+margin-top: 3.5em;
+text-align: center;
+}
+
+.userInput {
+  width: 40%;
+  margin-left: 2em;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.userInput option {
+  font-size: 16px;
+}
+.jokeHeader{
+  text-align: center;
+  margin-bottom: 1.5em;;
+}
+
+.actionIcon {
+  cursor: pointer;
+}
+
