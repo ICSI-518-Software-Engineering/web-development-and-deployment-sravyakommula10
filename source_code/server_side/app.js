@@ -9,6 +9,14 @@ var usersRouter = require("./routes/users");
 
 var app = express();
 
+const mongoose = require("mongoose");
+const dbUrl = "mongodb+srv://user1:user1@cluster0.qoiapvl.mongodb.net/inventory?retryWrites=true&w=majority&appName=Cluster0"
+
+  mongoose
+  .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => console.log("Connected to mongodb"))
+  .catch((err) => console.log('Connection failed', err));
+
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "jade");
@@ -22,18 +30,6 @@ app.use(express.static(path.join(__dirname, "public")));
 
 app.use("/", indexRouter);
 app.use("/users", usersRouter);
-
-// Logic for addition two numbers
-app.post("/add", (req, res) => {
-  const { numOne, numTwo } = req.body;
-
-  if (numOne == null || numTwo == null) {
-    return res.status(400).json({ error: "Please enter valid inputs" });
-  }
-
-  const response = numOne + numTwo;
-  res.json({ sum: response });
-});
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
