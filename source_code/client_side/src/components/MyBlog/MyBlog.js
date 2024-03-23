@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 
 import photo from '../../Images/photo.png';
-import { Navbar, Form, Container, Row, Col, Button } from "react-bootstrap";
-import mylogo from '../../Images/mylogo.jpeg';
+import { Form, Container, Row, Col, Button } from "react-bootstrap";
 import { getService } from "../../API/api";
 
 const MyBlog = () => {
@@ -55,7 +54,6 @@ const MyBlog = () => {
         const payload = {
           method: "POST",
           url: "http://ec2-3-12-108-133.us-east-2.compute.amazonaws.com:5001/add",
-    
           data: {
             numOne: parseInt(numOne),
             numTwo: parseInt(numTwo),
@@ -78,18 +76,6 @@ const MyBlog = () => {
 
     return (
         <>
-            <Navbar variant="light" className="navBar">
-                <Navbar.Brand href="#home" className="custom-nav">
-                    <img
-                        alt="Media Library"
-                        src={mylogo}
-                        width="40"
-                        height="40"
-                        className="d-inline-block align-top"
-                    />{" "}
-                    <p>Sravya</p>
-                </Navbar.Brand>
-            </Navbar>
             <div className="wholeSection">
                 <Container className="userSection mb-5">
                     <Row>
