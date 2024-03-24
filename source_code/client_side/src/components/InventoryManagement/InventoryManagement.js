@@ -21,7 +21,7 @@ const InventoryManagement = () => {
   const retrieveInventories = async () => {
     const payload = {
       method: "GET",
-      url: "http://localhost:5001/inventories",
+      url: "http://ec2-18-222-177-27.us-east-2.compute.amazonaws.com:5001/inventories",
     };
 
     try {
@@ -35,7 +35,7 @@ const InventoryManagement = () => {
   const addInventory = async (inventory) => {
     const payload = {
       method: "POST",
-      url: "http://localhost:5001/inventory",
+      url: "http://ec2-18-222-177-27.us-east-2.compute.amazonaws.com:5001/inventory",
       data: inventory,
     };
 
@@ -51,7 +51,7 @@ const InventoryManagement = () => {
   const deleteInventory = async (deletingInventoryId) => {
     const payload = {
       method: "DELETE",
-      url: `http://localhost:5001/inventory/${deletingInventoryId}`
+      url: `http://ec2-18-222-177-27.us-east-2.compute.amazonaws.com:5001/inventory/${deletingInventoryId}`
     };
 
     try {
@@ -73,7 +73,7 @@ const InventoryManagement = () => {
     const inventoryId = updatedInventory._id;
     const payload = {
       method: "PUT",
-      url: `http://localhost:5001/inventory/${inventoryId}`,
+      url: `http://ec2-18-222-177-27.us-east-2.compute.amazonaws.com:5001/inventory/${inventoryId}`,
       data: updatedInventory,
     };
 

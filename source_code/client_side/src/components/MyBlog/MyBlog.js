@@ -53,7 +53,8 @@ const MyBlog = () => {
     
         const payload = {
           method: "POST",
-          url: "http://ec2-3-12-108-133.us-east-2.compute.amazonaws.com:5001/add",
+          url: "http://ec2-18-222-177-27.us-east-2.compute.amazonaws.com:5001/add",
+          
           data: {
             numOne: parseInt(numOne),
             numTwo: parseInt(numTwo),
