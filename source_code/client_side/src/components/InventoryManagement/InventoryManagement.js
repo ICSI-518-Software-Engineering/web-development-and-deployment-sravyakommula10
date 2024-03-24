@@ -25,9 +25,9 @@ const InventoryManagement = () => {
 
     try {
       const response = await getService(payload);
-      setInventories(response.data);
+      setInventories(response?.data);
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.response?.data.message);
     }
   };
 
@@ -40,10 +40,10 @@ const InventoryManagement = () => {
 
     try {
       const response = await getService(payload);
-      alert(response.data.message);
+      alert(response?.data.message);
       retrieveInventories();
     } catch (error) {
-      alert(error.response.data.message);
+      alert(error.response?.data.message);
     }
   };
 
@@ -55,10 +55,10 @@ const InventoryManagement = () => {
 
     try {
       const response = await getService(payload);
-      alert(response.data.message);
+      alert(response?.data.message);
       retrieveInventories();
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.response?.data.message);
     }
   };
 
@@ -78,10 +78,10 @@ const InventoryManagement = () => {
 
     try {
       const response = await getService(payload);
-      alert(response.data.message);
+      alert(response?.data.message);
       retrieveInventories();
     } catch (err) {
-      alert(err.response.data.message);
+      alert(err.response?.data.message);
     }
   };
 

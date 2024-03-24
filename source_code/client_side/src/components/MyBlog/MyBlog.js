@@ -65,7 +65,7 @@ const MyBlog = () => {
 
     try {
       const response = await getService(payload);
-      setServerSum(response.data.sum);
+      setServerSum(response?.data.sum);
     } catch (error) {
       if (error.response && error.response.status === 400) {
         setServerSum(null);
