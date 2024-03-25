@@ -53,7 +53,7 @@ const MyBlog = () => {
     
         const payload = {
           method: "POST",
-          url: "http://localhost:5001/add",
+          url: "http://18.218.64.109:5001/add",
           
           data: {
             numOne: parseInt(numOne),
