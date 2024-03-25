@@ -1,4 +1,4 @@
-# SE Assignment - 1
+# SE Assignment - 3
 
 Hello! I'm Sravya Kommula, currently pursuing MS in Computer Science at SUNY ALBANY.
 
@@ -6,28 +6,22 @@ Hello! I'm Sravya Kommula, currently pursuing MS in Computer Science at SUNY ALB
 
 My EC2 Links:
 
-    3.12.108.133
+   18.218.64.109
 
-    ec2-3-12-108-133.us-east-2.compute.amazonaws.com
+    ec2-18-218-64-109.us-east-2.compute.amazonaws.com
 
-My website links: [click here to view website](http://ec2-3-12-108-133.us-east-2.compute.amazonaws.com:5001)
+My website links: [click here to view website](http://ec2-18-218-64-109.us-east-2.compute.amazonaws.com:3000)
 
-    http://3.12.108.133:5001
+    http://18.218.64.109:3000
 
-    http://ec2-3-12-108-133.us-east-2.compute.amazonaws.com:5001
+   http://ec2-18-218-64-109.us-east-2.compute.amazonaws.com:3000
 
 Git Repo Link: [click to view git repo](https://github.com/ICSI-518-Software-Engineering/web-development-and-deployment-sravyakommula10)
 
     https://github.com/ICSI-518-Software-Engineering/web-development-and-deployment-sravyakommula10
+    
+I would rate 3 : Good Expierience
 
-** NOTE: I haven't used any ChatGPT, like i have experiance as web developer back in india. i have used that experiance in developing this assignment. **
+I utilized ChatGPT to discover third-party APIs, and among them, I found the Joke Fetcher API.
 
-I have refered this website for making assignment:
-
-component library: [Click to view](https://react-bootstrap.netlify.app/)
-
-    React Bootstrap: https://react-bootstrap.netlify.app/
-
-PM2 for live application: [Click here to view](https://pm2.keymetrics.io/docs/usage/quick-start/)
-
-    PM2 Link: https://pm2.keymetrics.io/docs/usage/quick-start/
+I utilized ChatGPT to use the Material Icons library by including the following link in the index.html file of my React project: <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />. This allowed me to use Material Icons for update and delete functionalities in my inventory management application.
