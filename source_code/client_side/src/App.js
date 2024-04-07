@@ -6,6 +6,8 @@ import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import mylogo from './Images/mylogo.jpeg';
 import InventoryManagement from "./components/InventoryManagement/InventoryManagement";
+import AuthPage from "./components/pages/AuthPage";
+import SignIn from "./components/Authentication/SignIn";
 
 function App() {
   return (
@@ -33,10 +35,11 @@ function App() {
       </Navbar>
 
       <Routes>
-        <Route path="/" element={<MyBlog />} />
+        <Route path="/" element={<AuthPage />} />
         <Route path="/myblog" element={<MyBlog />} />
         <Route path="/jokes" element={<Jokes />} />
         <Route path="/inventory" element={<InventoryManagement />} />
+        <Route path="/signin" element={<SignIn />} />
       </Routes>
     </Router>
   );
