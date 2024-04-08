@@ -6,6 +6,25 @@ const inventorySchema = new mongoose.Schema({
     image: String
 });
 
-const Inventory = mongoose.model('Inventory', inventorySchema);
+const userSchema = new mongoose.Schema({
+    name:{
+        type: String,
+        required: true
+    },
+    email:{
+        type: String,
+        required: true,
+        unique: true
+    },
+    password:{
+        type: String,
+        required: true
+    }
+},
+{timeStamps: true}
+);
 
-module.exports = { Inventory };
+const Inventory = mongoose.model('Inventory', inventorySchema);
+const User = mongoose.model('User', userSchema);
+
+module.exports = { Inventory, User };
