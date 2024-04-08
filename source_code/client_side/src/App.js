@@ -7,12 +7,12 @@ import { Navbar, Nav } from "react-bootstrap";
 import mylogo from './Images/mylogo.jpeg';
 import InventoryManagement from "./components/InventoryManagement/InventoryManagement";
 import AuthPage from "./components/pages/AuthPage";
-import SignIn from "./components/Authentication/SignIn";
+import HomePage from "./components/pages/HomePage";
 
 function App() {
   return (
     <Router>
-      <Navbar variant="light" className="navBar">
+      {/* <Navbar variant="light" className="navBar">
 
         <Navbar.Brand href="/" className="custom-nav">
           <img
@@ -32,14 +32,15 @@ function App() {
             <Nav.Link as={Link} to="/inventory">InventoryManagement</Nav.Link>
           </Nav>
         </Navbar.Collapse>
-      </Navbar>
+      </Navbar> */}
 
       <Routes>
         <Route path="/" element={<AuthPage />} />
-        <Route path="/myblog" element={<MyBlog />} />
+        <Route path="/home/*" element={<HomePage />} />
+        {/* <Route path="/myblog" element={<MyBlog />} />
         <Route path="/jokes" element={<Jokes />} />
-        <Route path="/inventory" element={<InventoryManagement />} />
-        <Route path="/signin" element={<SignIn />} />
+        <Route path="/inventory" element={<InventoryManagement />} /> */}
+        
       </Routes>
     </Router>
   );
