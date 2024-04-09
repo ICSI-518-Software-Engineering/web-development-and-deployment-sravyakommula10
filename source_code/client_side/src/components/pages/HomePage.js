@@ -5,6 +5,7 @@ import mylogo from '../../Images/mylogo.jpeg';
 import MyBlog from '../MyBlog/MyBlog';
 import Jokes from '../Jokes/Jokes';
 import InventoryManagement from '../InventoryManagement/InventoryManagement';
+import Profile from '../UserInfo/Profile';
 
 
 const HomePage = () => {
@@ -27,7 +28,8 @@ const HomePage = () => {
           <Nav className="mr-auto customLink">
             <Nav.Link as={Link} to="myblog">My Blog</Nav.Link>
             <Nav.Link as={Link} to="jokes">Jokes</Nav.Link>
-            <Nav.Link as={Link} to="inventory">InventoryManagement</Nav.Link>
+            <Nav.Link as={Link} to="inventory">Inventory Management</Nav.Link>
+            <Nav.Link as={Link} to="profile">User Profile</Nav.Link>
           </Nav>
         </Navbar.Collapse>
         </Navbar>
@@ -36,6 +38,7 @@ const HomePage = () => {
             <Route path="myblog" element={<MyBlog />} />
             <Route path="jokes" element={<Jokes />} />
             <Route path="inventory" element={<InventoryManagement />} />
+            <Route path="profile" element={<Profile />} />
             <Route index element={<MyBlog />} />
         </Routes>
         </>
