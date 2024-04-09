@@ -1,12 +1,42 @@
-// SignUp.js
-
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
+import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const SignUp = () => {
+    const navigate = useNavigate();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // Handle sign up logic here
+        console.log('Sign Up form submitted');
+        const name = e.target[0].value;
+        const email = e.target[1].value;
+        const password = e.target[2].value;
+        const confirmPassword = e.target[3].value;
+        if(!name || !email || !password || !confirmPassword){
+            alert("Please fill all the fields");
+            return;
+        }
+        if(password !== confirmPassword){
+            alert("Passwords do not match");
+            return;
+        }
+        try{
+            const config = {
+              headers: {
+                'Content-type': 'application/json',
+              },
+            };
+            const {data} = axios.post('/users/register', {name, email, password}, config);
+            console.log(data);
+            localStorage.setItem("userInfo", JSON.stringify(data));
+            navigate('/home');
+        } 
+        catch (error) {
+            console.log(error);
+            alert("Failed to create user");
+        }
     }
 
     return (
