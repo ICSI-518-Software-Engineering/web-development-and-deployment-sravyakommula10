@@ -7,58 +7,61 @@ import InventoryTable from "./InventoryTable";
 import "../../App.css";
 import EditInventory from "./EditInventory";
 
+const baseURL = "http://localhost:5001";
+
 const InventoryManagement = () => {
+
   const initialState = { name: "", quantity: 0, image: "" };
   const [inventories, setInventories] = useState([initialState]);
   const [currentInventory, setCurrentInventory] = useState(initialState);
   const [isEdit, setIsEdit] = useState(false);
 
   useEffect(() => {
-    retrieveInventories();
-  }, []);
+    retrieveInventories()
+  }, [])
 
   const retrieveInventories = async () => {
     const payload = {
       method: "GET",
-      url: "http://18.218.64.109:3000/inventories",
+      url: ${baseURL}/inventories,
     };
 
     try {
       const response = await getService(payload);
-      setInventories(response?.data);
+      setInventories(response.data);
     } catch (err) {
-      alert(err.response?.data.message);
+      alert(err.response.data.message);
     }
   };
 
   const addInventory = async (inventory) => {
     const payload = {
       method: "POST",
-      url: "http://18.218.64.109:3000/inventory",
+      url: ${baseURL}/inventory,
       data: inventory,
     };
 
     try {
       const response = await getService(payload);
-      alert(response?.data.message);
+      alert(response.data.message);
       retrieveInventories();
     } catch (error) {
-      alert(error.response?.data.message);
+      alert(error.response.data.message);
     }
   };
 
   const deleteInventory = async (deletingInventoryId) => {
     const payload = {
       method: "DELETE",
-      url: `http://18.218.64.109:3000/inventory/${deletingInventoryId}`,
+      url: ${baseURL}/inventory/${deletingInventoryId}
     };
 
     try {
       const response = await getService(payload);
-      alert(response?.data.message);
+      alert(response.data.message);
       retrieveInventories();
     } catch (err) {
-      alert(err.response?.data.message);
+      alert(err.response.data.message);
     }
   };
 
@@ -72,16 +75,16 @@ const InventoryManagement = () => {
     const inventoryId = updatedInventory._id;
     const payload = {
       method: "PUT",
-      url: `http://18.218.64.109:3000/inventory/${inventoryId}`,
+      url: ${baseURL}/inventory/${inventoryId},
       data: updatedInventory,
     };
 
     try {
       const response = await getService(payload);
-      alert(response?.data.message);
+      alert(response.data.message);
       retrieveInventories();
     } catch (err) {
-      alert(err.response?.data.message);
+      alert(err.response.data.message);
     }
   };
 
@@ -101,14 +104,10 @@ const InventoryManagement = () => {
             </Col>
           </Row>
           <Row className="ps-5 pt-2">
-            <EditInventory
-              currentInventory={currentInventory}
-              editInventory={editInventory}
-              setIsEdit={setIsEdit}
-            />
+            <EditInventory currentInventory={currentInventory} editInventory={editInventory}
+              setIsEdit={setIsEdit} />
           </Row>
-        </>
-      ) : (
+        </>) : (
         <>
           <Row className="ps-4 mb-2">
             <Col sm={4}>
@@ -118,8 +117,7 @@ const InventoryManagement = () => {
           <Row className="ps-5 pt-2">
             <CreateInventory addInventory={addInventory} />
           </Row>
-        </>
-      )}
+        </>)}
 
       <Row className="ps-4 mt-5 mb-1">
         <Col sm={4}>
@@ -127,11 +125,7 @@ const InventoryManagement = () => {
         </Col>
       </Row>
       <Row className="ps-5">
-        <InventoryTable
-          inventories={inventories}
-          deleteRow={deleteInventory}
-          editRow={editRow}
-        />
+        <InventoryTable inventories={inventories} deleteRow={deleteInventory} editRow={editRow} />
       </Row>
     </>
   );

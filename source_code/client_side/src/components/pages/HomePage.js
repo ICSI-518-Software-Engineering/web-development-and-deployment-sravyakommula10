@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
+import { Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import mylogo from '../../Images/mylogo.jpeg';
 import MyBlog from '../MyBlog/MyBlog';
@@ -13,7 +13,7 @@ const HomePage = () => {
     <>
         <Navbar variant="light" className="navBar">
 
-        <Navbar.Brand href="/home/myblog" className="custom-nav">
+        <Navbar.Brand as={Link} to="myblog" className="custom-nav">
           <img
             alt="Media Library"
             src={mylogo}
