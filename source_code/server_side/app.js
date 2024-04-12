@@ -10,12 +10,23 @@ var usersRouter = require("./routes/users");
 var app = express();
 
 const mongoose = require("mongoose");
-const dbUrl = "mongodb+srv://user1:user1@cluster0.qoiapvl.mongodb.net/inventory?retryWrites=true&w=majority&appName=Cluster0"
+// The below URL is for MongoDB Atlas
+// const dbUrl = "mongodb+srv://user1:user1@cluster0.qoiapvl.mongodb.net/inventory?retryWrites=true&w=majority&appName=Cluster0"
 
-  mongoose
-  .connect(dbUrl, { useNewUrlParser: true, useUnifiedTopology: true })
+// The below URL is for Local MongoDB
+// const dbUrl = "mongodb://localhost:27017/inventory";
+
+// The below URL is for mongoDB pointing to the docker container
+const dbUrl = "mongodb://mymongodb:27017/inventory"; 
+
+mongoose.connect(dbUrl, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  connectTimeoutMS: 60000, // Increased to 60 seconds
+})
   .then(() => console.log("Connected to mongodb"))
   .catch((err) => console.log('Connection failed', err));
+
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
@@ -44,7 +55,7 @@ app.use(function (err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render("error");
+  res.render("error", { title: 'Error' });
 });
 
 module.exports = app;

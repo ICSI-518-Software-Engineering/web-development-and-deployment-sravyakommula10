@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  mymongodb:
+    image: mongo:latest
+    container_name: mymongodbcontainer
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb-data:/data/db
+    # networks:
+    #   - mynetwork
+
+  myapp:
+    build: .
+    depends_on:
+      - mymongodb
+    container_name: myappcontainer
+    ports:
+      - "5001:5001"
+#     networks:
+#       - mynetwork
+
+# networks:
+#   mynetwork:
+#     driver: bridge
+
+volumes:
+  mongodb-data:
