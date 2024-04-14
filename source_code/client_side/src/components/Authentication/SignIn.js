@@ -1,9 +1,10 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { getService } from '../../API/api';
 
-axios.defaults.baseURL = 'http://localhost:5001';
+const baseURL = 'http://localhost:5001';
+
 
 const SignIn = () => {
     const navigate = useNavigate();
@@ -18,20 +19,21 @@ const SignIn = () => {
             alert("Please fill all the fields");
             return;
         }
+        const payload = {
+            method: "POST",
+            url: ${baseURL}/users/login,
+            data: {email, password}
+        };
         try{
-            const config = {
-              headers: {
-                'Content-type': 'application/json',
-              },
-            };
-            const {data} = await axios.post('/users/login', {email, password}, config);
+            const response = await getService(payload);
+            const data = response.data;
             console.log(data);  
             localStorage.setItem('userInfo', JSON.stringify(data));
             navigate('/home');          
         }
         catch(error){
             console.error(error);
-            alert("Invalid Email or Password");
+            alert(error.response.data);
 
         }
     }

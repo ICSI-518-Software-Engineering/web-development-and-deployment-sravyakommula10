@@ -23,7 +23,7 @@ const InventoryManagement = () => {
   const retrieveInventories = async () => {
     const payload = {
       method: "GET",
-      url: ${baseURL}/inventories,
+      url: `${baseURL}/inventories`,
     };
 
     try {
@@ -37,7 +37,7 @@ const InventoryManagement = () => {
   const addInventory = async (inventory) => {
     const payload = {
       method: "POST",
-      url: ${baseURL}/inventory,
+      url: `${baseURL}/inventory`,
       data: inventory,
     };
 
@@ -53,7 +53,7 @@ const InventoryManagement = () => {
   const deleteInventory = async (deletingInventoryId) => {
     const payload = {
       method: "DELETE",
-      url: ${baseURL}/inventory/${deletingInventoryId}
+      url: `${baseURL}/inventory/${deletingInventoryId}`
     };
 
     try {
@@ -75,7 +75,7 @@ const InventoryManagement = () => {
     const inventoryId = updatedInventory._id;
     const payload = {
       method: "PUT",
-      url: ${baseURL}/inventory/${inventoryId},
+      url: `${baseURL}/inventory/${inventoryId}`,
       data: updatedInventory,
     };
 

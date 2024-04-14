@@ -1,12 +1,14 @@
 import React from 'react';
 import { Form, Button } from 'react-bootstrap';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { getService } from '../../API/api';
+
+const baseURL = 'http://localhost:5001';
 
 const SignUp = () => {
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         // Handle sign up logic here
         console.log('Sign Up form submitted');
@@ -22,20 +24,22 @@ const SignUp = () => {
             alert("Passwords do not match");
             return;
         }
+        const payload = {
+            method: "POST",
+            url: ${baseURL}/users/register,
+            data: {name, email, password}
+        };
+
         try{
-            const config = {
-              headers: {
-                'Content-type': 'application/json',
-              },
-            };
-            const {data} = axios.post('/users/register', {name, email, password}, config);
+            const response = await getService(payload);
+            const data = response.data;
             console.log(data);
             localStorage.setItem("userInfo", JSON.stringify(data));
             navigate('/home');
         } 
         catch (error) {
             console.log(error);
-            alert("Failed to create user");
+            alert(error.response.data);
         }
     }
 
