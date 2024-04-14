@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Routes, Route, Link } from 'react-router-dom';
 import { Navbar, Nav } from "react-bootstrap";
 import mylogo from '../../Images/mylogo.jpeg';
@@ -6,9 +6,19 @@ import MyBlog from '../MyBlog/MyBlog';
 import Jokes from '../Jokes/Jokes';
 import InventoryManagement from '../InventoryManagement/InventoryManagement';
 import Profile from '../UserInfo/Profile';
+import { useNavigate } from 'react-router-dom';
+
 
 
 const HomePage = () => {
+  const navigate = useNavigate();
+  useEffect(() => {
+    const userInfo = localStorage.getItem('userInfo');
+    if (!userInfo) {
+      navigate('/');
+    }
+  }, [navigate]);
+
   return (
     <>
         <Navbar variant="light" className="navBar">
