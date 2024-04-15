@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getService } from '../../API/api';
 
-const baseURL = 'http://localhost:5001';
+const baseURL = 'http://localhost:3000';
 
 
 const SignIn = () => {
@@ -21,7 +21,7 @@ const SignIn = () => {
         }
         const payload = {
             method: "POST",
-            url: ${baseURL}/users/login,
+            url: `${baseURL}/users/login`,
             data: {email, password}
         };
         try{

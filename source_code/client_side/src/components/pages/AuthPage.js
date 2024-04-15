@@ -1,8 +1,6 @@
-// AuthenticationPage.js
-
 import React, { useState } from 'react';
 import { Container, Row, Col, Tabs, Tab } from 'react-bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css'; // Import Bootstrap CSS
+import 'bootstrap/dist/css/bootstrap.min.css'; 
 import SignIn from '../Authentication/SignIn';
 import SignUp from '../Authentication/SignUp';
 

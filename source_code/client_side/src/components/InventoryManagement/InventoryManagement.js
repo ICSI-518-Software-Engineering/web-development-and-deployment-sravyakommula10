@@ -7,7 +7,7 @@ import InventoryTable from "./InventoryTable";
 import "../../App.css";
 import EditInventory from "./EditInventory";
 
-const baseURL = "http://localhost:5001";
+const baseURL = "http://localhost:3000";
 
 const InventoryManagement = () => {
 

@@ -1,11 +1,6 @@
 import "./App.css";
 import React from 'react';
-import MyBlog from './components/MyBlog/MyBlog';
-import Jokes from './components/Jokes/Jokes';
 import { BrowserRouter as Router, Route, Link, Routes } from 'react-router-dom';
-import { Navbar, Nav } from "react-bootstrap";
-import mylogo from './Images/mylogo.jpeg';
-import InventoryManagement from "./components/InventoryManagement/InventoryManagement";
 import AuthPage from "./components/pages/AuthPage";
 import HomePage from "./components/pages/HomePage";
 

@@ -3,7 +3,7 @@ import { Form, Button } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { getService } from '../../API/api';
 
-const baseURL = 'http://localhost:5001';
+const baseURL = 'http://localhost:3000';
 
 const SignUp = () => {
     const navigate = useNavigate();
@@ -26,7 +26,7 @@ const SignUp = () => {
         }
         const payload = {
             method: "POST",
-            url: ${baseURL}/users/register,
+            url: `${baseURL}/users/register`,
             data: {name, email, password}
         };
 
