@@ -2,40 +2,40 @@ var express = require('express');
 var router = express.Router();
 const {User} = require('../schema/schema');
 
-/* GET users listing. */
-// router.get('/', function(req, res, next) {
-//   res.send('respond with a resource');
-// });
+// Body parsing middleware
+router.use(express.json());
+
 
 async function registerUser(req,res){
-    res.send("Register Route");
+    // console.log(req.body);
+    // res.send("Register Route");
     const {name, email, password} = req.body;
     if(!name || !email || !password){
-        res.status(400);
-        res.send("Please fill all fields");
+        res.status(400).send("Please fill all the fields");
+        return;
     }
 
     const userExists = await User.findOne({email});
     if(userExists){
-        res.status(400);
-        res.send("User already exists");
+        res.status(400).send("A user with this email already exists");
+        return;
     }
-
-    const user = await User.create({
-        name,
-        email,
-        password
-    });
-    if(user){
-        res.status(201).json({
-            _id: user._id,
-            name: user.name,
-            email: user.email,
-        });
-    }else{
-        res.status(400);
-        res.send("Failed to create user");
-    }
+    else{
+      const user = await User.create({
+          name,
+          email,
+          password
+      });
+      if(user){
+          res.status(201).json({
+              _id: user._id,
+              name: user.name,
+              email: user.email,
+          });
+      }else{
+          res.status(400).send("Failed to create user");
+      }
+  }
 }
 
 async function authUser(req,res){
@@ -52,9 +52,7 @@ async function authUser(req,res){
         res.send("Invalid Email or Password");
     }
 }
-
 router.post('/register', registerUser);
 router.post('/login', authUser);
-
 
 module.exports = router;
