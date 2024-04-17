@@ -36,13 +36,11 @@ I utilized ChatGPT to use the Material Icons library by including the following 
 
 ec2-3-137-221-145.us-east-2.compute.amazonaws.com
 
-
 ## My Website links :click here to view website
 
 http://3.137.221.145:80
 
 http://ec2-3-137-221-145.us-east-2.compute.amazonaws.com:80
-
 
 ## Git Repository Link : click to view git repo
 
